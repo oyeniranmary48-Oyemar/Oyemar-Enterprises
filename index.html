@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bloom Café | Fresh coffee, in full bloom</title>
+  <title>Oyemar Enterprises | POS banking, airtime and data</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header" id="top">
     <div class="bar">
-      <a class="brand" href="#top"><span aria-hidden="true">&#127800;</span> Bloom Café</a>
+      <a class="brand" href="#top">Oyemar Enterprises</a>
 
       <button class="nav-toggle" id="nav-toggle" type="button"
               aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-list">&#9776;</button>
@@ -17,11 +17,11 @@
       <nav aria-label="Main">
         <ul class="nav-list" id="nav-list">
           <li><a href="#top">Home</a></li>
-          <li><a href="#menu">Menu</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#request">Request</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#hours">Hours</a></li>
-          <li><a href="#reserve">Reserve</a></li>
-          <li><a href="#order" class="order-link">Order <span class="badge" id="order-count">0</span></a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -29,139 +29,130 @@
 
   <main>
     <section class="hero">
-      <div class="hero-text">
-        <h1>Where good coffee blooms</h1>
-        <p>Freshly roasted coffee, warm pastries and light meals, served in a cosy garden setting.</p>
-        <div class="hero-buttons">
-          <a class="btn" href="#menu">See the menu</a>
-          <a class="btn btn-outline" href="#reserve">Reserve a table</a>
-        </div>
+      <h1>Banking, airtime and data, close to you</h1>
+      <p>Oyemar Enterprises offers POS banking, airtime and data subscription, and related mobile services, quick and friendly.</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#request">Request a service</a>
+        <a class="btn btn-outline wa-link" href="#contact">Chat on WhatsApp</a>
       </div>
-      <div class="hero-art" aria-hidden="true">&#127800;</div>
     </section>
 
-    <section class="section" id="menu">
-      <h2>Our menu</h2>
-      <p>Pick your favourites and add them to your order.</p>
-
-      <div class="filters" role="group" aria-label="Filter the menu">
-        <button type="button" class="filter active" data-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="filter" data-filter="coffee" aria-pressed="false">Coffee</button>
-        <button type="button" class="filter" data-filter="drinks" aria-pressed="false">Drinks</button>
-        <button type="button" class="filter" data-filter="food" aria-pressed="false">Food</button>
-        <button type="button" class="filter" data-filter="pastry" aria-pressed="false">Pastries</button>
+    <section class="section" id="services">
+      <h2>Our services</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="icon" aria-hidden="true">&#128179;</div>
+          <h3>POS banking</h3>
+          <p>Cash withdrawals, transfers and deposits without the long bank queue.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">&#128241;</div>
+          <h3>Airtime top-up</h3>
+          <p>Recharge your line or send airtime to family and friends.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">&#128246;</div>
+          <h3>Data subscription</h3>
+          <p>Get a data bundle quickly so you can stay online.</p>
+        </article>
       </div>
-
-      <div class="menu-grid" id="menu-grid"></div>
     </section>
 
-    <section class="section order" id="order">
-      <h2>Your order</h2>
-      <p id="order-empty">Nothing here yet. Add something from the menu.</p>
-      <ul class="order-list" id="order-list"></ul>
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li class="step">
+          <h3>Choose a service</h3>
+          <p>Pick POS banking, airtime or data.</p>
+        </li>
+        <li class="step">
+          <h3>Send your request</h3>
+          <p>Fill in the short form below. It opens WhatsApp with your details ready.</p>
+        </li>
+        <li class="step">
+          <h3>Get served</h3>
+          <p>We confirm with you and complete your request.</p>
+        </li>
+      </ol>
+    </section>
 
-      <div class="order-footer">
-        <p class="total">Total: <strong id="order-total">&#8358;0</strong></p>
-        <div class="order-buttons">
-          <button type="button" class="btn" id="place-order">Place order</button>
-          <button type="button" class="btn btn-outline" id="clear-order">Clear</button>
+    <section class="section request" id="request">
+      <h2>Request a service</h2>
+      <p>Fill in the form, then send it to us on WhatsApp.</p>
+
+      <form id="request-form" class="form" novalidate>
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" autocomplete="name" aria-describedby="f-name-error">
+          <p class="error" id="f-name-error"></p>
         </div>
+
+        <div class="field">
+          <label for="f-service">Service</label>
+          <select id="f-service" aria-describedby="f-service-error">
+            <option value="">Choose a service</option>
+            <option value="pos">POS banking</option>
+            <option value="airtime">Airtime top-up</option>
+            <option value="data">Data subscription</option>
+          </select>
+          <p class="error" id="f-service-error"></p>
+        </div>
+
+        <div class="field" id="network-field" hidden>
+          <label for="f-network">Network</label>
+          <select id="f-network" aria-describedby="f-network-error">
+            <option value="">Choose a network</option>
+            <option value="MTN">MTN</option>
+            <option value="Airtel">Airtel</option>
+            <option value="Glo">Glo</option>
+            <option value="9mobile">9mobile</option>
+          </select>
+          <p class="error" id="f-network-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-phone" id="phone-label">Phone number</label>
+          <input type="tel" id="f-phone" autocomplete="tel" placeholder="08031234567" aria-describedby="f-phone-error">
+          <p class="error" id="f-phone-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-amount">Amount (&#8358;)</label>
+          <input type="number" id="f-amount" aria-describedby="f-amount-error">
+          <p class="error" id="f-amount-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-details">Extra details (optional)</label>
+          <textarea id="f-details" rows="3" placeholder="For example: the data plan size you want"></textarea>
+        </div>
+
+        <button class="btn" type="submit">Prepare my request</button>
+      </form>
+
+      <div class="summary" id="summary" role="status" hidden>
+        <p id="summary-text"></p>
+        <a class="btn" id="send-link" href="#request" target="_blank" rel="noopener">Send on WhatsApp</a>
       </div>
-      <p class="message" id="order-message" role="status"></p>
     </section>
 
     <section class="section" id="about">
-      <h2>About Bloom Café</h2>
-      <p>Bloom Café started with a simple idea: a place where friends can slow down over a really good cup of coffee. We roast in small batches, bake every morning, and grow herbs in our own little garden.</p>
-      <div class="features">
-        <div class="feature">
-          <h3>Fresh every day</h3>
-          <p>Pastries and meals are made each morning.</p>
-        </div>
-        <div class="feature">
-          <h3>Small-batch coffee</h3>
-          <p>Roasted in small amounts for the best flavour.</p>
-        </div>
-        <div class="feature">
-          <h3>A cosy garden</h3>
-          <p>Sit outside, bring a book or meet friends.</p>
-        </div>
-      </div>
+      <h2>About Oyemar Enterprises</h2>
+      <p>Oyemar Enterprises is a global business that offers POS banking, airtime and data subscription, and related mobile services. We aim to make everyday payments and top-ups quick, simple and friendly.</p>
     </section>
 
-    <section class="section" id="hours">
-      <h2>Opening hours and location</h2>
-      <div class="hours-layout">
-        <table>
-          <caption>When we are open</caption>
-          <thead>
-            <tr><th scope="col">Day</th><th scope="col">Hours</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Monday to Friday</th><td>7:00 am - 8:00 pm</td></tr>
-            <tr><th scope="row">Saturday</th><td>8:00 am - 9:00 pm</td></tr>
-            <tr><th scope="row">Sunday</th><td>9:00 am - 6:00 pm</td></tr>
-          </tbody>
-        </table>
-
-        <address class="address">
-          <h3>Find us</h3>
-          <p>24 Olubula Area<br> Gbongan Osun State</p>
-          <p>Phone: +234 8071079188<br>Email: oyeniranmary48@gmail.com</p>
-        </address>
-      </div>
-    </section>
-
-    <section class="section" id="reserve">
-      <h2>Reserve a table</h2>
-      <div id="reserve-success" class="success" role="status" hidden></div>
-
-      <form id="reserve-form" class="form" novalidate>
-        <div class="field">
-          <label for="r-name">Your name</label>
-          <input type="text" id="r-name" autocomplete="name" aria-describedby="r-name-error">
-          <p class="error" id="r-name-error"></p>
-        </div>
-
-        <div class="field">
-          <label for="r-email">Email</label>
-          <input type="email" id="r-email" autocomplete="email" aria-describedby="r-email-error">
-          <p class="error" id="r-email-error"></p>
-        </div>
-
-        <div class="field">
-          <label for="r-date">Date</label>
-          <input type="date" id="r-date" aria-describedby="r-date-error">
-          <p class="error" id="r-date-error"></p>
-        </div>
-
-        <div class="field">
-          <label for="r-time">Time</label>
-          <select id="r-time" aria-describedby="r-time-error">
-            <option value="">Choose a time</option>
-            <option value="9:00 am">9:00 am</option>
-            <option value="11:00 am">11:00 am</option>
-            <option value="1:00 pm">1:00 pm</option>
-            <option value="3:00 pm">3:00 pm</option>
-            <option value="5:00 pm">5:00 pm</option>
-            <option value="7:00 pm">7:00 pm</option>
-          </select>
-          <p class="error" id="r-time-error"></p>
-        </div>
-
-        <div class="field">
-          <label for="r-guests">Number of guests (1 to 10)</label>
-          <input type="number" id="r-guests" aria-describedby="r-guests-error">
-          <p class="error" id="r-guests-error"></p>
-        </div>
-
-        <button class="btn" type="submit">Reserve my table</button>
-      </form>
+    <section class="section" id="contact">
+      <h2>Contact us</h2>
+      <ul class="contact-list">
+        <li>WhatsApp: <a class="wa-link" href="#2347035093978">2347035093978</a></li>
+        <li>Email: <a href="mailto:oyeniranmary48@gmail.com">oyeniranmary48@gmail.com</a></li>
+        <li>Location: Gbongan, Osun State, Nigeria</li>
+      </ul>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; Bloom Café. Get your coffee now.</p>
+    <p>&copy; Oyemar Enterprises. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
